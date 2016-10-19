@@ -17,7 +17,7 @@ var FutService = (function () {
     }
     FutService.prototype.showLeagues = function () {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
-        return this._http.get("http://api.football-data.org/v1/competitions/?season=2016", {
+        return this._http.get("https://api.football-data.org/v1/competitions/?season=2016", {
             headers: headers
         })
             .map(function (res) { return res.json(); });
@@ -25,39 +25,39 @@ var FutService = (function () {
     FutService.prototype.getTeams = function (id) {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
         headers.append('X-Response-Control', 'minified');
-        return this._http.get('http://api.football-data.org/v1/competitions/' + id + '/teams', {
+        return this._http.get('https://api.football-data.org/v1/competitions/' + id + '/teams', {
             headers: headers
         }).map(function (res) { return res.json(); });
     };
     FutService.prototype.getTeam = function (teamId) {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
         headers.append('X-Response-Control', 'minified');
-        return this._http.get('http://api.football-data.org/v1/teams/' + teamId, {
+        return this._http.get('https://api.football-data.org/v1/teams/' + teamId, {
             headers: headers
         }).map(function (res) { return res.json(); });
     };
     FutService.prototype.getStandings = function (id) {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
-        return this._http.get('http://api.football-data.org/v1/competitions/' + id + '/leagueTable', {
+        return this._http.get('https://api.football-data.org/v1/competitions/' + id + '/leagueTable', {
             headers: headers
         }).map(function (res) { return res.json(); });
     };
     FutService.prototype.getFixtures = function (id) {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
-        return this._http.get('http://api.football-data.org/v1/competitions/' + id + '/fixtures', {
+        return this._http.get('https://api.football-data.org/v1/competitions/' + id + '/fixtures', {
             headers: headers
         }).map(function (res) { return res.json(); });
     };
     FutService.prototype.getTeamFixtures = function (id) {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
-        return this._http.get('http://api.football-data.org/v1/teams/' + id + '/fixtures', {
+        return this._http.get('https://api.football-data.org/v1/teams/' + id + '/fixtures', {
             headers: headers
         }).map(function (res) { return res.json(); });
     };
     FutService.prototype.getPlayers = function (id) {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
         headers.append('X-Response-Control', 'minified');
-        return this._http.get('http://api.football-data.org/v1/teams/' + id + '/players', {
+        return this._http.get('https://api.football-data.org/v1/teams/' + id + '/players', {
             headers: headers
         }).map(function (res) { return res.json(); });
     };
