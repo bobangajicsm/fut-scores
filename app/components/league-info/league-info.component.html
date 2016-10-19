@@ -1,0 +1,7 @@
+<template ngFor let-league [ngForOf]="leagues"]>
+  <template [ngIf]="league.id == leagueId">
+      <h3 >{{league.caption}}</h3>
+      <p>Teams participating: {{league.numberOfTeams}}</p>
+      <p>Number of games: {{league.numberOfGames}}</p>
+  </template>
+</template>

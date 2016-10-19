@@ -1,0 +1,45 @@
+<div *ngIf="standings != ''">
+<h3>{{leagueCaption}}</h3>
+<div class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Team</th>
+      <th title="Played Games">PG</th>
+      <th title="Home Statistics">Home</th>
+      <th title="Away Statistics">Away</th>
+      <th title="Goal Difference">GD</th>
+      <th title="Wins">W</th>
+      <th title="Draws">D</th>
+      <th title="Losses">L</th>
+      <th title="Points">PTS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let standing of standings">
+      <td>{{standing.position}}</td>
+      <td>
+        <img width="20" class="img-circle" [class.hide]="standing.crestURI == 'null' || standing.crestURI.length == 0 " [src]="standing.crestURI" title="{{standing.teamName}}" alt="">
+        {{standing.teamName}}
+      </td>
+      <td title="Played Games">{{standing.playedGames}}</td>
+      <td title="Home Statistics">
+          <span class="label label-primary">{{standing.home.wins}}</span> /
+          <span class="label label-info">{{standing.home.draws}}</span> /
+          <span class="label label-danger">{{standing.home.losses}}</span>
+      </td>
+      <td title="Away Statistics">
+        <span class="label label-success">{{standing.away.wins}}</span> /
+        <span class="label label-info">{{standing.away.draws}}</span> /
+        <span class="label label-danger">{{standing.away.losses}}</span>
+      </td>
+      <td title="Goal Difference">{{standing.goalDifference}}</td>
+      <td title="Wins"><span class="label label-success">{{standing.wins}}</span></td>
+      <td title="Draws"><span class="label label-info">{{standing.draws}}</span></td>
+      <td title="Losses"><span class="label label-danger">{{standing.losses}}</span></td>
+      <td title="Points">{{standing.points}}</td>
+    </tr>
+  </tbody>
+</div>
+</div>
+<div *ngIf="standings == ''">Sorry there is no standings stats ...</div>

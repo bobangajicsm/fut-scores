@@ -1,0 +1,36 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require("@angular/core");
+var fut_services_1 = require("../../services/fut.services");
+var CompetitionsComponent = (function () {
+    function CompetitionsComponent(_spotifyService) {
+        this._spotifyService = _spotifyService;
+    }
+    CompetitionsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._spotifyService.showLeagues().subscribe(function (res) {
+            console.log(res);
+            _this.leagues = res;
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    CompetitionsComponent = __decorate([
+        core_1.Component({
+            selector: 'search',
+            templateUrl: './app/components/competitions/competitions.component.html'
+        }), 
+        __metadata('design:paramtypes', [fut_services_1.FutService])
+    ], CompetitionsComponent);
+    return CompetitionsComponent;
+}());
+exports.CompetitionsComponent = CompetitionsComponent;
+//# sourceMappingURL=competitions.component.js.map

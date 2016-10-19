@@ -1,0 +1,32 @@
+<div *ngIf="players != ''">
+<h2>Squad</h2>
+<div class="table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Jersey</th>
+      <th>Value</th>
+      <th>Date of Birth</th>
+      <th>Nationality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players;let i = index;">
+      <td>{{i+1}}</td>
+      <td>{{player.name}}</td>
+      <td>{{player.position}}</td>
+      <td>{{player.jerseyNumber}}</td>
+      <td>{{player.marketValue}}</td>
+      <td>{{player.dateOfBirth}}</td>
+      <td>{{player.nationality}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<div *ngIf="players == ''">
+  <p>Sorry there is no squad stats ....</p>
+</div>

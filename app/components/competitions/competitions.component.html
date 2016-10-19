@@ -1,0 +1,8 @@
+<div class="list-group">
+  <div class="list-group-item active"><h4>Leagues</h4></div>
+  <div *ngFor="let league of leagues; let i = index;" class="list-group-item">
+
+    <a routerLink="{{league.id}}/competition">{{league.caption}}</a>
+
+  </div>
+</div>
