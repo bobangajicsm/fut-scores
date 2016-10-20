@@ -1,4 +1,4 @@
-<div *ngIf="standings != ''">
+<div *ngIf="standings != undefined">
 <h3>{{leagueCaption}}</h3>
 <div class="table">
   <thead>
@@ -43,3 +43,30 @@
 </div>
 </div>
 <div *ngIf="standings == ''">Sorry there is no standings stats ...</div>
+
+<div class="table-responsive" *ngIf="groupsObj != ''">
+  <h3>{{leagueCaption}} groups</h3>
+  <table class="table" *ngFor="let groups of groupsObj;">
+          <tbody *ngFor="let group of groups; let i = index;">
+                <tr *ngIf="i==0">
+                  <td><strong>Group: {{group.group}}</strong></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngIf="i==0">
+                    <th>#</th>
+                    <th>Team</th>
+                    <th class="text-center">Played games</th>
+                    <th class="text-center">Points</th>
+                </tr>
+                <tr>
+                  <td>{{group.rank}}</td>
+                  <td><img [ngStyle]="{width:'40px'}" *ngIf="group.crestURI" [src]="group.crestURI" alt="">
+                    {{group.team}}</td>
+                  <td class="text-center">{{group.playedGames}}</td>
+                  <td class="text-center">{{group.points}}</td>
+                </tr>
+        </tbody>
+  </table>
+</div>

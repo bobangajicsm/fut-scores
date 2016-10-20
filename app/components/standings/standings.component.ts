@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {FutService} from "../../services/fut.services";
 import {ActivatedRoute} from "@angular/router";
+import {STANDING} from "../../../standings";
 
 
 @Component({
@@ -9,6 +10,9 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class StandingsComponent implements OnInit{
   standings: STANDING[];
+  keyArr:string[] = [];
+  groupsObj:any[] = [];
+
   leagueCaption:string;
   constructor(
     private _futService: FutService,
@@ -21,40 +25,26 @@ export class StandingsComponent implements OnInit{
           this._futService.getStandings(par).subscribe((res)=>{
             this.standings = res.standing;
             this.leagueCaption = res.leagueCaption;
-            console.log(res);
+            // first taking key values of groups
+            for(let i in res.standings){
+              this.keyArr.push(i);
+            };
+            // iterating true key values of groups and pushing to obj
+            for(let i in this.keyArr){
+              this.groupsObj.push(res.standings[this.keyArr[i]]);
+            }
+
+            console.log('groups obj');
+            console.log(this.groupsObj);
+            console.log('standings');
+            console.log(this.standings);
+
           });
     });
   }
 
 }
 
-export class STANDING{
-  away:{
-    draws:number;
-    goals:number;
-    goalsAgainst:number;
-    losses:number;
-    wins:number;
-  };
-  crestURI:string;
-  draws:number;
-  goalDifference:number;
-  goals:number;
-  goalsAgainst:number;
-  home:{
-    draws:number;
-    goals:number;
-    goalsAgainst:number;
-    losses:number;
-    wins:number;
-  }
-  losses:number;
-  playedGames:number;
-  points:number;
-  position:number;
-  teamName:string;
-  wins:number;
- }
 
 
 

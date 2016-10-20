@@ -15,6 +15,8 @@ var StandingsComponent = (function () {
     function StandingsComponent(_futService, _activatedRoute) {
         this._futService = _futService;
         this._activatedRoute = _activatedRoute;
+        this.keyArr = [];
+        this.groupsObj = [];
     }
     StandingsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -23,7 +25,19 @@ var StandingsComponent = (function () {
             _this._futService.getStandings(par).subscribe(function (res) {
                 _this.standings = res.standing;
                 _this.leagueCaption = res.leagueCaption;
-                console.log(res);
+                // first taking key values of groups
+                for (var i in res.standings) {
+                    _this.keyArr.push(i);
+                }
+                ;
+                // iterating true key values of groups and pushing to obj
+                for (var i in _this.keyArr) {
+                    _this.groupsObj.push(res.standings[_this.keyArr[i]]);
+                }
+                console.log('groups obj');
+                console.log(_this.groupsObj);
+                console.log('standings');
+                console.log(_this.standings);
             });
         });
     };
@@ -37,10 +51,4 @@ var StandingsComponent = (function () {
     return StandingsComponent;
 }());
 exports.StandingsComponent = StandingsComponent;
-var STANDING = (function () {
-    function STANDING() {
-    }
-    return STANDING;
-}());
-exports.STANDING = STANDING;
 //# sourceMappingURL=standings.component.js.map
