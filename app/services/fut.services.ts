@@ -36,9 +36,16 @@ export class FutService{
       headers:headers
     }).map((res)=>res.json());
   }
-
+  getFixture(id:string){
+    let headers = new Headers({'X-Auth-Token':'3e3003ffe85b4d7a80cd596b02172aa7'});
+    headers.append('X-Response-Control','minified');
+    return this._http.get('https://api.football-data.org/v1/fixtures/'+ id,{
+      headers:headers
+    }).map((res)=>res.json());
+  }
   getFixtures(id:string){
     let headers = new Headers({'X-Auth-Token':'3e3003ffe85b4d7a80cd596b02172aa7'});
+    headers.append('X-Response-Control','minified');
     return this._http.get('https://api.football-data.org/v1/competitions/'+id+'/fixtures',{
       headers:headers
     }).map((res)=>res.json());

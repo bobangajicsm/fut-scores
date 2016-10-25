@@ -42,8 +42,16 @@ var FutService = (function () {
             headers: headers
         }).map(function (res) { return res.json(); });
     };
+    FutService.prototype.getFixture = function (id) {
+        var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
+        headers.append('X-Response-Control', 'minified');
+        return this._http.get('https://api.football-data.org/v1/fixtures/' + id, {
+            headers: headers
+        }).map(function (res) { return res.json(); });
+    };
     FutService.prototype.getFixtures = function (id) {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
+        headers.append('X-Response-Control', 'minified');
         return this._http.get('https://api.football-data.org/v1/competitions/' + id + '/fixtures', {
             headers: headers
         }).map(function (res) { return res.json(); });

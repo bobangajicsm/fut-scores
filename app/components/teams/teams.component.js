@@ -18,7 +18,7 @@ var TeamsComponent = (function () {
     }
     TeamsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._activatedRoute.params
+        this._activatedRoute.parent.params
             .map(function (par) { return par['id']; }).subscribe(function (par) {
             _this._futService.getTeams(par).subscribe(function (res) {
                 _this.teams = res.teams;

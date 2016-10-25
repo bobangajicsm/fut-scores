@@ -16,6 +16,7 @@ import {StandingsComponent} from "./components/standings/standings.component";
 import {FixturesComponent} from "./components/fixtures/fixtures.component";
 import {PlayersComponent} from "./components/players/players.component";
 import {TeamFixturesComponent} from "./components/fixtures/team-fixtures.component";
+import {SingleFixtureComponent} from "./components/fixtures/single-fixture.component";
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import {TeamFixturesComponent} from "./components/fixtures/team-fixtures.compone
     StandingsComponent,
     FixturesComponent,
     PlayersComponent,
-    TeamFixturesComponent
+    TeamFixturesComponent,
+    SingleFixtureComponent
   ]
   ,
   bootstrap: [ AppComponent ]

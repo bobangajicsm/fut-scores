@@ -25,6 +25,7 @@ var standings_component_1 = require("./components/standings/standings.component"
 var fixtures_component_1 = require("./components/fixtures/fixtures.component");
 var players_component_1 = require("./components/players/players.component");
 var team_fixtures_component_1 = require("./components/fixtures/team-fixtures.component");
+var single_fixture_component_1 = require("./components/fixtures/single-fixture.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -48,7 +49,8 @@ var AppModule = (function () {
                 standings_component_1.StandingsComponent,
                 fixtures_component_1.FixturesComponent,
                 players_component_1.PlayersComponent,
-                team_fixtures_component_1.TeamFixturesComponent
+                team_fixtures_component_1.TeamFixturesComponent,
+                single_fixture_component_1.SingleFixtureComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

@@ -4,7 +4,7 @@
   <div class="list-group-item" *ngFor="let fixture of fixtures">
     <div class="row">
       <div class="col-md-5 text-right">{{fixture.homeTeamName}}</div>
-      <div class="col-md-2 text-center">{{fixture.result.goalsHomeTeam}}:{{fixture.result.goalsAwayTeam}}</div>
+      <div class="col-md-2 text-center"><a routerLink="fixture/{{fixture.id}}">{{fixture.result.goalsHomeTeam}}:{{fixture.result.goalsAwayTeam}}</a></div>
       <div class="col-md-5 text-left">
         {{fixture.awayTeamName}}
         <span class="pull-right">{{fixture.date | date}}</span>

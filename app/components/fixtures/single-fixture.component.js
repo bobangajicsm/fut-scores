@@ -11,29 +11,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var fut_services_1 = require("../../services/fut.services");
 var router_1 = require("@angular/router");
-var FixturesComponent = (function () {
-    function FixturesComponent(_futService, _activatedRoute) {
+var SingleFixtureComponent = (function () {
+    function SingleFixtureComponent(_futService, _activatedRoute) {
         this._futService = _futService;
         this._activatedRoute = _activatedRoute;
+        this.fixture = {};
+        this.result = {};
+        this.halftime = {};
     }
-    FixturesComponent.prototype.ngOnInit = function () {
+    SingleFixtureComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._activatedRoute.parent.params
+        this._activatedRoute.params
             .map(function (params) { return params['id']; }).subscribe(function (par) {
-            _this._futService.getFixtures(par).subscribe(function (res) {
-                _this.fixtures = res.fixtures;
-                console.log(res);
+            _this._futService.getFixture(par).subscribe(function (res) {
+                _this.fixture = res.fixture;
+                _this.result = res.fixture.result;
+                _this.halftime = res.fixture.result.halfTime;
+                _this.headToHead = res.head2head.fixtures;
+                console.log(res.head2head);
             });
         });
     };
-    FixturesComponent = __decorate([
+    SingleFixtureComponent = __decorate([
         core_1.Component({
-            selector: 'fixtures',
-            templateUrl: './app/components/fixtures/fixtures.component.html'
+            selector: 'single-fixture',
+            templateUrl: './app/components/fixtures/single-fixture.component.html'
         }), 
         __metadata('design:paramtypes', [fut_services_1.FutService, router_1.ActivatedRoute])
-    ], FixturesComponent);
-    return FixturesComponent;
+    ], SingleFixtureComponent);
+    return SingleFixtureComponent;
 }());
-exports.FixturesComponent = FixturesComponent;
-//# sourceMappingURL=fixtures.component.js.map
+exports.SingleFixtureComponent = SingleFixtureComponent;
+//# sourceMappingURL=single-fixture.component.js.map

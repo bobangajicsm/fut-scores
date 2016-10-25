@@ -17,7 +17,7 @@ export class FixturesComponent implements OnInit{
   ){}
 
   ngOnInit(){
-    this._activatedRoute.params
+    this._activatedRoute.parent.params
       .map((params)=> params['id']).subscribe((par)=>{
       this._futService.getFixtures(par).subscribe((res)=>{
         this.fixtures = res.fixtures;

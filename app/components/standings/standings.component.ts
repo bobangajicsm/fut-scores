@@ -20,7 +20,7 @@ export class StandingsComponent implements OnInit{
   ){}
 
   ngOnInit(){
-    this._activatedRoute.params
+    this._activatedRoute.parent.params
       .map((params)=> params['id']).subscribe((par)=>{
           this._futService.getStandings(par).subscribe((res)=>{
             this.standings = res.standing;
@@ -33,11 +33,6 @@ export class StandingsComponent implements OnInit{
             for(let i in this.keyArr){
               this.groupsObj.push(res.standings[this.keyArr[i]]);
             }
-
-            console.log('groups obj');
-            console.log(this.groupsObj);
-            console.log('standings');
-            console.log(this.standings);
 
           });
     });

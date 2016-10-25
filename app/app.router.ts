@@ -11,6 +11,7 @@ import {StandingsComponent} from "./components/standings/standings.component";
 import {FixturesComponent} from "./components/fixtures/fixtures.component";
 import {PlayersComponent} from "./components/players/players.component";
 import {TeamFixturesComponent} from "./components/fixtures/team-fixtures.component";
+import {SingleFixtureComponent} from "./components/fixtures/single-fixture.component";
 
 const appRoutes:Routes = [
   {
@@ -20,7 +21,7 @@ const appRoutes:Routes = [
     path:'about',
     component: AboutComponent
   },{
-    path:':id/competition',
+    path:'competition/:id',
     component:CompetitionComponent,
     children:[
       {
@@ -28,26 +29,29 @@ const appRoutes:Routes = [
         component:LeagueInfoComponent
       },
       {
-        path:':id/teams',
+        path:'teams',
         component:TeamsComponent
       },{
-        path:':id/standings',
+        path:'standings',
         component:StandingsComponent
       },{
-        path:':id/fixtures',
+        path:'fixtures',
         component:FixturesComponent
       },{
-        path:':id/teams/:teamId',
+        path:'teams/:teamId',
         component:TeamComponent
       },{
-        path:':id/teams/:teamId/fixtures',
+        path:'teams/:teamId/fixtures',
         component:TeamFixturesComponent
       },{
-        path:':id/teams/:teamId/squad',
+        path:'teams/:teamId/squad',
         component: PlayersComponent
+      },{
+        path:'fixtures/fixture/:id',
+        component:SingleFixtureComponent
       }
     ]
-  },
+  }
 ];
 
 

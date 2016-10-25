@@ -20,7 +20,7 @@ var StandingsComponent = (function () {
     }
     StandingsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._activatedRoute.params
+        this._activatedRoute.parent.params
             .map(function (params) { return params['id']; }).subscribe(function (par) {
             _this._futService.getStandings(par).subscribe(function (res) {
                 _this.standings = res.standing;
@@ -34,10 +34,6 @@ var StandingsComponent = (function () {
                 for (var i in _this.keyArr) {
                     _this.groupsObj.push(res.standings[_this.keyArr[i]]);
                 }
-                console.log('groups obj');
-                console.log(_this.groupsObj);
-                console.log('standings');
-                console.log(_this.standings);
             });
         });
     };

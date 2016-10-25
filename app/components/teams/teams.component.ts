@@ -15,7 +15,7 @@ export class TeamsComponent implements OnInit{
     ){}
 
   ngOnInit(){
-    this._activatedRoute.params
+    this._activatedRoute.parent.params
       .map((par) => par['id']).subscribe((par)=>{
         this._futService.getTeams(par).subscribe((res)=>{
           this.teams = res.teams;

@@ -6,7 +6,7 @@
       <img *ngIf="team.crestUrl!='null'" width="50" src="{{team.crestUrl}}" alt="">
       {{team.name}}
     </a>
-    <p>Market Value: {{team.squadMarketValue}}</p>
+    <p *ngIf="team.squadMarketValue" >Market Value: {{team.squadMarketValue}}</p>
   </div>
 </div>
 </div>

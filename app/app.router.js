@@ -10,6 +10,7 @@ var standings_component_1 = require("./components/standings/standings.component"
 var fixtures_component_1 = require("./components/fixtures/fixtures.component");
 var players_component_1 = require("./components/players/players.component");
 var team_fixtures_component_1 = require("./components/fixtures/team-fixtures.component");
+var single_fixture_component_1 = require("./components/fixtures/single-fixture.component");
 var appRoutes = [
     {
         path: '',
@@ -18,7 +19,7 @@ var appRoutes = [
         path: 'about',
         component: about_component_1.AboutComponent
     }, {
-        path: ':id/competition',
+        path: 'competition/:id',
         component: competition_component_1.CompetitionComponent,
         children: [
             {
@@ -26,26 +27,29 @@ var appRoutes = [
                 component: league_info_component_1.LeagueInfoComponent
             },
             {
-                path: ':id/teams',
+                path: 'teams',
                 component: teams_component_1.TeamsComponent
             }, {
-                path: ':id/standings',
+                path: 'standings',
                 component: standings_component_1.StandingsComponent
             }, {
-                path: ':id/fixtures',
+                path: 'fixtures',
                 component: fixtures_component_1.FixturesComponent
             }, {
-                path: ':id/teams/:teamId',
+                path: 'teams/:teamId',
                 component: team_component_1.TeamComponent
             }, {
-                path: ':id/teams/:teamId/fixtures',
+                path: 'teams/:teamId/fixtures',
                 component: team_fixtures_component_1.TeamFixturesComponent
             }, {
-                path: ':id/teams/:teamId/squad',
+                path: 'teams/:teamId/squad',
                 component: players_component_1.PlayersComponent
+            }, {
+                path: 'fixtures/fixture/:id',
+                component: single_fixture_component_1.SingleFixtureComponent
             }
         ]
-    },
+    }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.router.js.map

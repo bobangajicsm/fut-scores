@@ -4,7 +4,7 @@
   <div class="list-group-item text-center">
     <h2>{{teamName}}</h2>
     <p><img [ngStyle]="{margin:'10px auto'}" class="img-responsive" [src]="teamUrl" [alt]="teamUrl"></p>
-    <p class="text-right">Market Value: <strong>{{teamValue}}</strong></p>
+    <p *ngIf="teamValue" class="text-right">Market Value: <strong>{{teamValue}}</strong></p>
     <p>
       <a routerLink="squad" class="btn btn-primary">Squad</a>
       <a routerLink="fixtures" class="btn btn-primary">Fixtures</a>
