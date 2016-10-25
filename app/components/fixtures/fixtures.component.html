@@ -3,10 +3,10 @@
   <div class="list-group-item active">Fixtures</div>
   <div class="list-group-item" *ngFor="let fixture of fixtures">
     <div class="row">
-      <div class="col-md-5 text-right">{{fixture.homeTeamName}}</div>
+      <div class="col-md-5 text-right"><a routerLink="/competition/{{leagueId}}/teams/{{fixture.homeTeamId}}">{{fixture.homeTeamName}}</a></div>
       <div class="col-md-2 text-center"><a routerLink="fixture/{{fixture.id}}">{{fixture.result.goalsHomeTeam}}:{{fixture.result.goalsAwayTeam}}</a></div>
       <div class="col-md-5 text-left">
-        {{fixture.awayTeamName}}
+        <a routerLink="/competition/{{leagueId}}/teams/{{fixture.awayTeamId}}">{{fixture.awayTeamName}}</a>
         <span class="pull-right">{{fixture.date | date}}</span>
       </div>
     </div>

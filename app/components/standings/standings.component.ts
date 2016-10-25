@@ -10,8 +10,8 @@ import {STANDING} from "../../../standings";
 })
 export class StandingsComponent implements OnInit{
   standings: STANDING[];
-  keyArr:string[] = [];
   groupsObj:any[] = [];
+  leagueId:string;
 
   leagueCaption:string;
   constructor(
@@ -22,18 +22,14 @@ export class StandingsComponent implements OnInit{
   ngOnInit(){
     this._activatedRoute.parent.params
       .map((params)=> params['id']).subscribe((par)=>{
+          this.leagueId = par;
           this._futService.getStandings(par).subscribe((res)=>{
             this.standings = res.standing;
             this.leagueCaption = res.leagueCaption;
             // first taking key values of groups
             for(let i in res.standings){
-              this.keyArr.push(i);
+              this.groupsObj.push(res.standings[i]);
             };
-            // iterating true key values of groups and pushing to obj
-            for(let i in this.keyArr){
-              this.groupsObj.push(res.standings[this.keyArr[i]]);
-            }
-
           });
     });
   }

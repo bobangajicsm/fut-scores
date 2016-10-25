@@ -19,7 +19,6 @@ export class TeamsComponent implements OnInit{
       .map((par) => par['id']).subscribe((par)=>{
         this._futService.getTeams(par).subscribe((res)=>{
           this.teams = res.teams;
-          console.log(res);
         });
     });
   }

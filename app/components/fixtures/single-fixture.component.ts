@@ -27,7 +27,6 @@ export class SingleFixtureComponent implements OnInit{
         this.result = res.fixture.result;
         this.halftime = res.fixture.result.halfTime;
         this.headToHead = res.head2head.fixtures;
-        console.log(res.head2head);
       });
     });
   }

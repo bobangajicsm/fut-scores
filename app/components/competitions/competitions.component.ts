@@ -12,11 +12,8 @@ export class CompetitionsComponent implements OnInit{
   constructor(private _spotifyService: FutService){}
   ngOnInit(){
     this._spotifyService.showLeagues().subscribe((res)=>{
-      console.log(res);
       this.leagues = res;
     },(err)=>{
-      console.log(err);
-
     });
   }
 

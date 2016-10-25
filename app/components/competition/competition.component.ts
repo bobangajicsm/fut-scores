@@ -16,8 +16,10 @@ export class CompetitionComponent implements OnInit{
     this._activatedRoute.params
       .map((params)=>params['id']).subscribe((par)=>{
         this.leagueId = par;
-
     });
+  }
+  getBack(){
+    window.history.back();
   }
 
 }

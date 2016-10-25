@@ -22,7 +22,6 @@ var TeamsComponent = (function () {
             .map(function (par) { return par['id']; }).subscribe(function (par) {
             _this._futService.getTeams(par).subscribe(function (res) {
                 _this.teams = res.teams;
-                console.log(res);
             });
         });
     };

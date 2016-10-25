@@ -10,7 +10,7 @@ import {Fixture} from "../../../fixture";
 })
 export class FixturesComponent implements OnInit{
   fixtures:Fixture[];
-
+  leagueId: string;
   constructor(
     private _futService: FutService,
     private _activatedRoute: ActivatedRoute
@@ -19,9 +19,9 @@ export class FixturesComponent implements OnInit{
   ngOnInit(){
     this._activatedRoute.parent.params
       .map((params)=> params['id']).subscribe((par)=>{
+      this.leagueId = par;
       this._futService.getFixtures(par).subscribe((res)=>{
         this.fixtures = res.fixtures;
-        console.log(res);
       });
     });
   }

@@ -24,4 +24,5 @@ export class STANDING{
   position:number;
   teamName:string;
   wins:number;
+  rank:number;
 }

@@ -21,7 +21,6 @@ var PlayersComponent = (function () {
         this._activatedRoute.params
             .map(function (params) { return params['teamId']; }).subscribe(function (par) {
             _this._futService.getPlayers(par).subscribe(function (res) {
-                console.log(res.players.length);
                 _this.players = res.players;
             });
         });

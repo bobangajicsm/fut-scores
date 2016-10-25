@@ -3,12 +3,15 @@ import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/map';
 @Injectable()
 export class FutService{
+  currentYear:number;
 
-  constructor(private _http: Http){}
+  constructor(private _http: Http){
+    this.currentYear = new Date().getFullYear();
+  }
 
   showLeagues(){
       let headers = new Headers({'X-Auth-Token':'3e3003ffe85b4d7a80cd596b02172aa7'});
-      return this._http.get("https://api.football-data.org/v1/competitions/?season=2016",{
+      return this._http.get("https://api.football-data.org/v1/competitions/?season="+this.currentYear,{
         headers:headers
       })
         .map((res) => res.json() );
@@ -32,13 +35,13 @@ export class FutService{
 
   getStandings(id:string){
     let headers = new Headers({'X-Auth-Token':'3e3003ffe85b4d7a80cd596b02172aa7'});
+    headers.append('X-Response-Control','minified');
     return this._http.get('https://api.football-data.org/v1/competitions/'+id+'/leagueTable',{
       headers:headers
     }).map((res)=>res.json());
   }
   getFixture(id:string){
     let headers = new Headers({'X-Auth-Token':'3e3003ffe85b4d7a80cd596b02172aa7'});
-    headers.append('X-Response-Control','minified');
     return this._http.get('https://api.football-data.org/v1/fixtures/'+ id,{
       headers:headers
     }).map((res)=>res.json());

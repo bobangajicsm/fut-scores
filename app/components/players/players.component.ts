@@ -18,7 +18,6 @@ players: PLAYER[];
       this._activatedRoute.params
         .map((params)=>params['teamId']).subscribe((par)=>{
             this._futService.getPlayers(par).subscribe((res)=>{
-              console.log(res.players.length);
               this.players = res.players;
             });
       });

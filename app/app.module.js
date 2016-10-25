@@ -26,6 +26,7 @@ var fixtures_component_1 = require("./components/fixtures/fixtures.component");
 var players_component_1 = require("./components/players/players.component");
 var team_fixtures_component_1 = require("./components/fixtures/team-fixtures.component");
 var single_fixture_component_1 = require("./components/fixtures/single-fixture.component");
+core_1.enableProdMode();
 var AppModule = (function () {
     function AppModule() {
     }

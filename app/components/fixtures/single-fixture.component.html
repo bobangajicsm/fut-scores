@@ -10,7 +10,7 @@
   <tbody>
     <tr>
         <td>{{fixture.homeTeamName}}</td>
-        <td>{{result.goalsHomeTeam}} : {{result.goalsAwayTeam}}</td>
+        <td><strong>{{result.goalsHomeTeam}} : {{result.goalsAwayTeam}}</strong></td>
         <td>{{fixture.awayTeamName}}</td>
         <td><span *ngIf="halftime">({{halftime.goalsHomeTeam}} : {{halftime.goalsAwayTeam}})</span></td>
     </tr>
@@ -18,11 +18,13 @@
 </table>
 <div class="list-group">
   <div class="list-group-item active">Head to Head</div>
-<div *ngFor="let fixture of headToHead" class="list-group-item">
-  {{fixture.date | date}}
-  {{fixture.homeTeamName}}
-  {{fixture.result.goalsHomeTeam}}:{{fixture.result.goalsAwayTeam}}
-  {{fixture.awayTeamName}}
+<div *ngFor="let fixture of headToHead" class="list-group-item text-center">
+  <div class="row">
+    <div class="col-md-3 text-left">{{fixture.date | date}}</div>
+    <div class="col-md-4">{{fixture.homeTeamName}}</div>
+    <div class="col-md-1"><strong>{{fixture.result.goalsHomeTeam}}:{{fixture.result.goalsAwayTeam}}</strong></div>
+    <div class="col-md-4">{{fixture.awayTeamName}}</div>
+  </div>
 </div>
 </div>
 

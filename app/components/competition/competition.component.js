@@ -21,6 +21,9 @@ var CompetitionComponent = (function () {
             _this.leagueId = par;
         });
     };
+    CompetitionComponent.prototype.getBack = function () {
+        window.history.back();
+    };
     CompetitionComponent = __decorate([
         core_1.Component({
             selector: 'competition',

@@ -17,10 +17,8 @@ var CompetitionsComponent = (function () {
     CompetitionsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._spotifyService.showLeagues().subscribe(function (res) {
-            console.log(res);
             _this.leagues = res;
         }, function (err) {
-            console.log(err);
         });
     };
     CompetitionsComponent = __decorate([

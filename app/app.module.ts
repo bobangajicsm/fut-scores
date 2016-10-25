@@ -1,4 +1,4 @@
-import { NgModule }      from '@angular/core';
+import {NgModule, enableProdMode}      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from "@angular/forms";
 import {routing} from "./app.router";
@@ -17,6 +17,8 @@ import {FixturesComponent} from "./components/fixtures/fixtures.component";
 import {PlayersComponent} from "./components/players/players.component";
 import {TeamFixturesComponent} from "./components/fixtures/team-fixtures.component";
 import {SingleFixtureComponent} from "./components/fixtures/single-fixture.component";
+
+enableProdMode();
 
 @NgModule({
   imports: [

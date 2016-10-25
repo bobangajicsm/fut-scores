@@ -20,9 +20,9 @@ var FixturesComponent = (function () {
         var _this = this;
         this._activatedRoute.parent.params
             .map(function (params) { return params['id']; }).subscribe(function (par) {
+            _this.leagueId = par;
             _this._futService.getFixtures(par).subscribe(function (res) {
                 _this.fixtures = res.fixtures;
-                console.log(res);
             });
         });
     };

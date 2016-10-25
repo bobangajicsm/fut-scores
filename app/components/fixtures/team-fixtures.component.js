@@ -22,7 +22,6 @@ var TeamFixturesComponent = (function () {
             .map(function (params) { return params['teamId']; }).subscribe(function (par) {
             _this._futService.getTeamFixtures(par).subscribe(function (res) {
                 _this.fixtures = res.fixtures;
-                console.log(res);
             });
         });
     };

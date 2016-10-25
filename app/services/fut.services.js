@@ -14,10 +14,11 @@ require('rxjs/add/operator/map');
 var FutService = (function () {
     function FutService(_http) {
         this._http = _http;
+        this.currentYear = new Date().getFullYear();
     }
     FutService.prototype.showLeagues = function () {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
-        return this._http.get("https://api.football-data.org/v1/competitions/?season=2016", {
+        return this._http.get("https://api.football-data.org/v1/competitions/?season=" + this.currentYear, {
             headers: headers
         })
             .map(function (res) { return res.json(); });
@@ -38,13 +39,13 @@ var FutService = (function () {
     };
     FutService.prototype.getStandings = function (id) {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
+        headers.append('X-Response-Control', 'minified');
         return this._http.get('https://api.football-data.org/v1/competitions/' + id + '/leagueTable', {
             headers: headers
         }).map(function (res) { return res.json(); });
     };
     FutService.prototype.getFixture = function (id) {
         var headers = new http_1.Headers({ 'X-Auth-Token': '3e3003ffe85b4d7a80cd596b02172aa7' });
-        headers.append('X-Response-Control', 'minified');
         return this._http.get('https://api.football-data.org/v1/fixtures/' + id, {
             headers: headers
         }).map(function (res) { return res.json(); });

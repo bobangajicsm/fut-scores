@@ -21,7 +21,6 @@ export class TeamFixturesComponent implements OnInit{
       .map((params)=> params['teamId']).subscribe((par)=>{
       this._futService.getTeamFixtures(par).subscribe((res)=>{
         this.fixtures = res.fixtures;
-        console.log(res);
       });
     });
   }

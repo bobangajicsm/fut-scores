@@ -28,7 +28,6 @@ var SingleFixtureComponent = (function () {
                 _this.result = res.fixture.result;
                 _this.halftime = res.fixture.result.halfTime;
                 _this.headToHead = res.head2head.fixtures;
-                console.log(res.head2head);
             });
         });
     };
