@@ -6,7 +6,9 @@ export class FutService{
   currentYear:number;
 
   constructor(private _http: Http){
-    this.currentYear = new Date().getFullYear();
+    // api is not updated anymore so I use static 2016 until it gets updated
+    // this.currentYear = new Date().getFullYear();
+    this.currentYear = 2016;
   }
 
   showLeagues(){
